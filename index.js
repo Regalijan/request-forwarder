@@ -45,7 +45,6 @@ import { Server } from "@hapi/hapi";
 
       for (const [name, value] of apiResponse.headers.entries()) {
         if (
-          name.toLowerCase("x-csrf-token") ||
           name.toLowerCase().startsWith("x-ratelimit")
         )
           response.header(name, value);
