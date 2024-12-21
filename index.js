@@ -39,10 +39,17 @@ import { Server } from "@hapi/hapi";
         },
       );
 
-      const response = h.response(await apiResponse.text());
+      const response = h
+        .response(await apiResponse.text())
+        .type(apiResponse.headers.get("content-type"));
 
-      for (const [name, value] of apiResponse.headers.entries())
-        response.header(name, value);
+      for (const [name, value] of apiResponse.headers.entries()) {
+        if (
+          name.toLowerCase("x-csrf-token") ||
+          name.toLowerCase().startsWith("x-ratelimit")
+        )
+          response.header(name, value);
+      }
 
       return response;
     },
