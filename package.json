@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/Regalijan/request-forwarder#readme",
   "dependencies": {
-    "@hapi/hapi": "^21.3.12"
+    "@hapi/hapi": "^21.4.0"
   },
   "devDependencies": {
-    "prettier": "^3.4.2"
+    "prettier": "^3.5.3"
+  },
+  "prettier": {
+    "endOfLine": "auto"
   }
 }
