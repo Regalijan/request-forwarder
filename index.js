@@ -24,6 +24,12 @@ import { Server } from "@hapi/hapi";
           .type("application/json")
           .code(400);
 
+      if (!destination.endsWith(".roblox.com"))
+        return h
+          .response('{"error":"Invalid destination host"}')
+          .type("application/json")
+          .code(403);
+
       delete headers["destination-host"];
       delete headers["x-serverless-authorization"];
 
